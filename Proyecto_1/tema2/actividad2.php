@@ -13,10 +13,10 @@ $n2 = 13;
 $suma = $n1 + $n2;
 $resta = $n1 - $n2;
 $multi = $n1 * $n2;
-$divi = $n1 /$n2;
+$divi = $n1 / $n2;
 
 echo "
-    <table border='1'>
+    <table>
     <tr>
         <td>Opereación</td>
         <td>Restulado</td>
