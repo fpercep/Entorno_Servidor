@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-        $n1 = 25;
-        $n2 = 13;
-        $suma= $n1+$n2;
-        echo "
+<?php
+$n1 = 25;
+$n2 = 13;
+$suma = $n1 + $n2;
+echo "
         <table>
         <tr>
             <td>Número 1</td>
@@ -23,6 +23,6 @@
             <td>$suma</td>
         </tr>
         </table>";
-    ?>
+?>
 </body>
 </html>
