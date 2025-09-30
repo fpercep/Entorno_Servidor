@@ -22,24 +22,24 @@
     $vacio = null;
     ?>
     <tr>
-        <td><?php echo $num?></td>
-        <td><?php echo empty($num)?></td>
+        <td><?php echo $num ?></td>
+        <td><?php echo empty($num) ?></td>
         <td> <?php
-            if(empty($num)){
+            if (empty($num)) {
                 echo "Vacio";
-            }else{
+            } else {
                 echo "No vacio";
             }
             ?>
         </td>
     </tr>
     <tr>
-        <td><?php echo $vacio?></td>
-        <td><?php echo empty($vacio)?></td>
+        <td><?php echo $vacio ?></td>
+        <td><?php echo empty($vacio) ?></td>
         <td> <?php
-            if(empty($vacio)){
+            if (empty($vacio)) {
                 echo "Vacio";
-            }else{
+            } else {
                 echo "No vacio";
             }
             ?>
@@ -48,7 +48,7 @@
 </table>
 
 <?php
-    unset($num)
+unset($num)
 ?>
 </body>
 </html>
