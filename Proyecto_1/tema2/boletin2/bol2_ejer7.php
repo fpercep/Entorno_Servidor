@@ -31,15 +31,16 @@
 <body>
 <table>
     <?php
-    for ($i = 0; $i < 10; $i++) {
+    for ($i = 1; $i <= 10; $i++) {
         echo "<tr>";
         for ($j = 1; $j <= 10; $j++) {
             $n = $i * 10 + $j;
-            echo "<td>$n</td>";
+            echo "<th> $j " . " x "." $i</th>";
+            $resultado= $j * $i;
+            echo "<td>$resultado</td>";
         }
         echo "</tr>";
     }
     ?>
 </table>
 </body>
-
