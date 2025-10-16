@@ -52,8 +52,9 @@
     <tr>
         <th> Vector original </th>
         <th> <?php
+            sort($numeros);
             foreach ($numeros as $numero) {
-                    echo $numero . "-";
+                echo $numero . ($numero === end($numeros) ? "" : "-");
             }
             ?></th>
     </tr>
@@ -92,7 +93,26 @@
         </td>
         <td>
             <?php
+            sort($numeros);
+            foreach ($numeros as $numero) {
+                echo $numero . ($numero === end($numeros) ? "" : "-");
+            }
             ?>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Vector solo pares
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Vector solo impares
+        </td>
+        <td>
+
         </td>
     </tr>
 </table>
