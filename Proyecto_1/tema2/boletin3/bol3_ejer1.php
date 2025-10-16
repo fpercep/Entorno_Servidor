@@ -81,20 +81,17 @@
             <?php
             $numeros_Reversed = array_reverse($numeros);
             foreach ($numeros_Reversed as $numero) {
-                echo $numero . "-";
+                echo $numero . ($numero === end($numeros_Reversed) ? "" : "-");
             }
             ?>
         </td>
     </tr>
     <tr>
         <td>
-            Vector Inverso
+            Vector Ordenados
         </td>
         <td>
             <?php
-            foreach ($numeros_Reversed as $numero) {
-                echo $numero . "-";
-            }
             ?>
         </td>
     </tr>
