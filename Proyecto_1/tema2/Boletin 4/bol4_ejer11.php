@@ -185,18 +185,31 @@ $alumnos = [
     ?>
 </table>
 <?php
-$mediaMayor = [];
+$mediaMayor = [""];
 $maxMedia = PHP_INT_MIN;
 
-//Por revisar
 foreach ($mediasXAlumnos as $alumnoData) {
     if ($alumnoData[1] > $maxMedia) {
+        unset($mediaMayor);
+        $mediaMayor [] = [$alumnoData[0], $alumnoData[1]];
         $maxMedia = $alumnoData[1];
-        $mediaMayor = [];
-        $mediaMayor = [$alumnoData[0], $alumnoData[1]];
     } elseif ($alumnoData[1] == $maxMedia) {
-        $mediaMayor = [$alumnoData[0], $alumnoData[1]];
+        $mediaMayor [] = [$alumnoData[0], $alumnoData[1]];
     }
 }
 ?>
+<br/>
+<table>
+    <tr>
+        <th colspan="2">Mejor/es Alumno/s</th>
+    </tr>
+    <?php
+        foreach ($mediaMayor as $alumnoMedia) {
+            echo "<tr>";
+            echo "<td>$alumnoMedia[0]</td>";
+            echo "<td>$alumnoMedia[1]</td>";
+            echo "</tr>";
+        }
+    ?>
+</table>
 </body>
