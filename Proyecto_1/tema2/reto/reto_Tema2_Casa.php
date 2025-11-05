@@ -16,7 +16,7 @@
 $ventas = [
         "Lunes" => [
                 ["nombre" => "p1", "precio" => 10, "unidades" => 12],
-                ["nombre" => "p2", "precio" => 10 , "unidades" => 12],
+                ["nombre" => "p2", "precio" => 10, "unidades" => 12],
         ],
         "Martes" => [
                 ["nombre" => "p3", "precio" => 10, "unidades" => 12],
@@ -41,12 +41,12 @@ $alamcen = [
         ],
 ];
 
-function mostrarTablaVentas ($matriz_ventas)
+function mostrarTablaVentas($matriz_ventas)
 {
+    echo "<table>";
     foreach ($matriz_ventas as $dia => $productos) {
-        echo "<table>";
         echo "<tr>";
-        echo "<th colspan='4'> Ventas ". $dia . "</th>";
+        echo "<th rowspan='".(count($productos)+3). "'> Ventas " . $dia . "</th>";
         echo "</tr>";
         echo "<tr>";
         echo "<th> Nombre</th>";
@@ -57,42 +57,58 @@ function mostrarTablaVentas ($matriz_ventas)
         $totalDia = 0;
         foreach ($productos as $producto) {
             echo "<tr>";
-            echo "<td>" . $producto["nombre"]. "</td>";
-            echo "<td>" . $producto["precio"]. "</td>";
-            echo "<td>" . $producto["unidades"]. "</td>";
-            echo "<td>" . ($producto["unidades"] * $producto["precio"]). "</td>";
+            echo "<td>" . $producto["nombre"] . "</td>";
+            echo "<td>" . $producto["precio"] . "</td>";
+            echo "<td>" . $producto["unidades"] . "</td>";
+            echo "<td>" . ($producto["unidades"] * $producto["precio"]) . "</td>";
             $totalDia += ($producto["unidades"] * $producto["precio"]);
             echo "</tr>";
         }
         echo "<tr>";
         echo "<td colspan='3'>Total</td>";
-        echo "<td>" . $totalDia. "</td>";
+        echo "<td>" . $totalDia . "</td>";
         echo "</tr>";
-        echo "</table>";
         echo "<br>";
     }
+    echo "</table>";
 }
 
 
-function mostrarMejorDia ($matriz_ventas){
+function calcularMejorDia($matriz_ventas)
+{
     $mayor = PHP_INT_MIN;
     $mejoresDias = [];
+
     foreach ($matriz_ventas as $dia => $productos) {
-        $totalDia = 0;
+        $totalProductos  = 0;
         foreach ($productos as $producto) {
-            $totalDia += ($producto["unidades"] * $producto["precio"]);
+            $totalProductos += ($producto["unidades"] * $producto["precio"]);
         }
-        if ($mayor < $dia) {
-            $mejoresDias = [];
-            $mejoresDias = [$dia, $totalDia];
-            $mayor = $totalDia;
-        } elseif ($mayor == $dia) {
-            $mejoresDias [] = [$dia, $totalDia];
+        if ($mayor < $totalProductos) {
+            $mayor = $totalProductos;
+            $mejoresDias = [["dia" => $dia, "total" => $totalProductos]];
+        } elseif ($mayor == $totalProductos) {
+            $mejoresDias [] = ["dia" => $dia, "total" => $totalProductos];
         }
     }
+
+    return $mejoresDias;
+}
+function mostarMejorDia($matriz_ventas)
+{
+    $mejoresDias = calcularMejorDia($matriz_ventas);
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>Mejor/es Día/s</th>";
+    echo "</tr>";
+    for ($i = 0; $i < count($mejoresDias); $i++) {
+        echo "Hola";
+    }
+    echo "</table>";
 }
 
 mostrarTablaVentas($ventas);
+mostarMejorDia($ventas);
 
 ?>
 
