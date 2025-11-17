@@ -4,7 +4,7 @@ $matriz_NP = [];
 
 foreach ($matriz as $key => $value) {
     echo "$value <br/>";
-    if (strstr($value, "p") != " "){
+    /*if (strstr($value, "p") != " "){
 
-    }
+    }*/
 };
