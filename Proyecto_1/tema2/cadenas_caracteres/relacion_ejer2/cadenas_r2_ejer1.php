@@ -40,5 +40,5 @@ $cadena1 = "Mi mamá me mima";
 
 $cadena2 = "Quiero mucho a mi mamá";
 
-$arrayCadenas = ["Mi mamá me mima", "Quiero mucho a mi mamá"];
+$arrayCadenas = [$cadena1, $cadena2];
 $unionCadenas = implode(". ", $arrayCadenas);

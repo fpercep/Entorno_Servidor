@@ -29,44 +29,16 @@
             background-color: #97643f;
             color: white;
         }
-
-        .incorrecto {
-            color: red;
-        }
-
-        .correcto {
-            color: green;
-        }
     </style>
 </head>
 <body>
 <?php
-$usuario = ["Nombre1", "Nom&bre2", "Nom*bre3", "Nomb?re4", "Nombre5!",];
+$texto = "El la le li le el";
 ?>
-
 <table>
-    <tr class="">
-        <th colspan="2">
-            USUARIOS
-        </th>
-    </tr>
-    <?php
-    foreach ($usuario as $key => $value) {
-        $correcto = "correcto";
-        $caracteres = "&!?*";
-        if (strpbrk($value, $caracteres)) {
-            $correcto = "incorrecto";
-        }
-        echo "<tr>";
-        echo "<td>";
-        echo $value;
-        echo "</td>";
-        echo "<td class=\"$correcto\">";
-        echo strtoupper($correcto);
-        echo "</td>";
-        echo "</tr>";
-    }
-    ?>
+
 </table>
 </body>
 </html>
+
+

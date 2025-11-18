@@ -41,25 +41,40 @@
 </head>
 <body>
 <?php
-$usuario = ["Nombre1", "Nom&bre2", "Nom*bre3", "Nomb?re4", "Nombre5!",];
+$usuario = [
+        ["usuario" => "Nombre1", "contraseña" => "Nombre1"],
+        ["usuario" => "Nombre2", "contraseña" => "Nombre1"],
+        ["usuario" => "Nombre3", "contraseña" => "Nombre1"],
+        ["usuario" => "Nombre4", "contraseña" => "Nombre1"],
+        ["usuario" => "Nombre5", "contraseña" => "Nombre1"],
+        ["usuario" => "Nombre6", "contraseña" => "Nombre1"],
+];
 ?>
-
 <table>
     <tr class="">
-        <th colspan="2">
+        <th>
             USUARIOS
+        </th>
+        <th>
+            Contraseña
+        </th>
+        <th>
+            Estado
         </th>
     </tr>
     <?php
     foreach ($usuario as $key => $value) {
         $correcto = "correcto";
-        $caracteres = "&!?*";
-        if (strpbrk($value, $caracteres)) {
+        if (!strcasecmp($value["usuario"], $value["contraseña"])) {
             $correcto = "incorrecto";
         }
+        $passwordCesurada = str_pad("", strlen($value["contraseña"]), '*');
         echo "<tr>";
         echo "<td>";
-        echo $value;
+        echo $value["usuario"];
+        echo "</td>";
+        echo "<td>";
+        echo $passwordCesurada;
         echo "</td>";
         echo "<td class=\"$correcto\">";
         echo strtoupper($correcto);
@@ -67,6 +82,7 @@ $usuario = ["Nombre1", "Nom&bre2", "Nom*bre3", "Nomb?re4", "Nombre5!",];
         echo "</tr>";
     }
     ?>
+
 </table>
 </body>
 </html>
