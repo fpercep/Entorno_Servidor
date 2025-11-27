@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="vol1_ejer1-1.php" method="get">
+<form action="bol2_ejer1_2.php" method="get">
     <input type="text" name="nombre">
     <input type="number" name="edad">
     <input type="submit" name="subir">

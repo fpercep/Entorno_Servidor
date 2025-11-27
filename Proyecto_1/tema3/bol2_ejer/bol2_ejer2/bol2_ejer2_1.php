@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="vol1_ejer2-2.php" method="get">
+<form action="bol2_ejer2_2.php" method="get">
     <input type="number" name="cantidad">
     <select name="moneda">
         <option value="not" selected>selecciona un moneda</option>
