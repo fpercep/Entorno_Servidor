@@ -1,4 +1,17 @@
-<?php
-$id = "texto   asr";
-$id_formatedo = strtoupper($id);
-echo "$id_formatedo";
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Hola
+        <ul>
+            <li></li>
+        </ul>
+        </li>
+    </ul>
+</body>
+</html>

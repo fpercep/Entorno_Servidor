@@ -13,7 +13,7 @@ abstract class Vehiculo
         return str_replace(" ","",strtoupper($codigo));
     }
 
-    public function __construct($i,$n,$f,$k){
+    public function __construct($i,$n,$f,$k,$e=[]){
         $regexID = "/^[A-Za-z]{3}-[0-9]{4}[A-Za-z]$/";
         $regexFecha = "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/";
 
@@ -22,14 +22,15 @@ abstract class Vehiculo
             $this->nombre = $n;
             $this->kilometraje = $k;
             $this->fechaAdquisicion = $f;
+            $this->extras = $e;
             self::$contador ++;
         }
         else {
-            if (!preg_match($regexID, $i)) {
-                echo "EL codigo debe tener el formato XXX0000X";
-            }
             if (!preg_match($regexFecha, $f)) {
                 echo "La fecha debe tener el formato AAAA-MM-DD";
+            }
+            if (!preg_match($regexID, $i)) {
+                echo "EL codigo debe tener el formato XXX0000X";
             }
         }
     }
@@ -39,7 +40,7 @@ abstract class Vehiculo
         if ($this->kilometraje > 20000) {
             $salud -= 25;
         }
-        if (self::calcularEdad() > 5) {
+        if ($this->calcularEdad() > 5) {
             $salud -= 25;
         }
         return $salud;
