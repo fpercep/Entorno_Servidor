@@ -8,10 +8,10 @@ if (!isset($_COOKIE["modo"])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['btClaro'])) {
-        setcookie("modo", "0", time() + (7 * 24 * 60 * 60));
+        setcookie("modo", "0", time() + (60 * 60));
     }
     if (isset($_POST['btOscuro'])) {
-        setcookie("modo", "1", time() + (7 * 24 * 60 * 60));
+        setcookie("modo", "0", time() + (60 * 60));
     }
     header("refresh:0");
     exit;
