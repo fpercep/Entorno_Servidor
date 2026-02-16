@@ -2,12 +2,13 @@
 namespace controllers;
 use models\Director;
 use models\Pelicula;
-require_once "../models/Director.php";
-require_once "../models/Pelicula.php";
+require_once __DIR__ . "/../models/Director.php";
+require_once __DIR__ . "/../models/Pelicula.php";
 
-class Controller {
-    private $pelicula;
-    private $director;
+class Controller
+{
+    private Pelicula $pelicula;
+    private Director $director;
     public function __construct($conexion)
     {
         $this->pelicula = new Pelicula($conexion);
@@ -16,7 +17,18 @@ class Controller {
 
     public function index()
     {
-        $peliculas = $this->pelicula->getAll();
-        require_once "../views/app.php";
+        if (isset($_GET['borrar'])) {
+            $this->pelicula->delete($_GET['borrar']);
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['titulo'], $_POST['director'])) {
+            $this->pelicula->create($_POST['titulo'], $_POST['director']);
+        }
+
+        $filtro = $_GET['filtro_director'] ?? 0;
+        $peliculas = ($filtro != 0) ? $this->pelicula->getAll($filtro) : $this->pelicula->getAll();
+
+        $directores = $this->director->getAll();
+        require_once __DIR__ . "/../views/app.php";
     }
 }

@@ -11,9 +11,9 @@ class Director
         $this->conexion = $conexion;
     }
 
-    public function obtenerTodos()
+    public function getAll()
     {
         $resultado = $this->conexion->query("SELECT * FROM directores");
-        return $resultado->fetch_all();
+        return $resultado->fetch_all(MYSQLI_ASSOC);
     }
 }
