@@ -30,8 +30,18 @@ class Pelicula
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getOne($id) {
-
+    public function getOne($id)
+    {
+        $sentencia = "SELECT p.id , p.titulo, d.nombre AS director
+                        FROM peliculas AS p 
+                        LEFT JOIN directores d
+                        ON p.director_id = d.id
+                        WHERE p.id = ?";
+        if ($consulta = $this->conexion->prepare($sentencia)) {
+            $consulta->bind_param("i", $id);
+            $consulta->execute();
+            return $consulta->get_result()->fetch_assoc();
+        }
     }
     public function create($titulo, $director_id)
     {

@@ -5,10 +5,10 @@ use models\Pelicula;
 require_once __DIR__ . "/../models/Director.php";
 require_once __DIR__ . "/../models/Pelicula.php";
 
-class Controller
+class AppController
 {
-    private Pelicula $pelicula;
-    private Director $director;
+    private $pelicula;
+    private $director;
     public function __construct($conexion)
     {
         $this->pelicula = new Pelicula($conexion);
@@ -21,7 +21,7 @@ class Controller
             $this->pelicula->delete($_GET['borrar']);
         }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['titulo'], $_POST['director'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty(trim($_POST['titulo'])) &&  !empty($_POST['director'])) {
             $this->pelicula->create($_POST['titulo'], $_POST['director']);
         }
 

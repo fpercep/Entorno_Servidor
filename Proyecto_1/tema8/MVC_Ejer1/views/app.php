@@ -27,6 +27,7 @@
     <input type="text" name="titulo">
     <label for="titulo">Director</label>
     <select name="director">
+        <option value=""></option>
         <?php
         foreach ($directores as $director): ?>
             <option value="<?php
