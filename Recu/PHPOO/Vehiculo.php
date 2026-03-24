@@ -29,4 +29,14 @@ abstract class Vehiculo
             $this->extras = $extras;
         }
     }
+
+    public function calcularSalud() {
+
+    }
+
+    public function __toString()
+    {
+
+    }
+
 }
