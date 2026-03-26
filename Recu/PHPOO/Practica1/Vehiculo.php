@@ -31,12 +31,25 @@ abstract class Vehiculo
     }
 
     public function calcularSalud() {
+        $adquisicion = new DateTime($this->fechaAdquisicion);
+        $hoy = new DateTime();
+        $salud = 100;
 
+        if($adquisicion->diff($hoy)->y > 5){
+            $salud -= 25;
+        }
+        if ($this->kilometraje > 20.000) {
+            $salud -= 25;
+        }
     }
+
+    abstract public function calcularAutonomia();
 
     public function __toString()
     {
-
+        $fechaFormateada = (new DateTime($this->fechaAdquisicion))->format('d/m/Y');
+        $extras = implode(", ", $this->extras);
+        return "ID: {$this->id} | Adquirido: {$fechaFormateada} Extras: {$extras}";
     }
 
 }
